@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Characters from '~/components/characters'
 
 const Home = () => (
 	<>
@@ -12,6 +13,7 @@ const Home = () => (
 			<h1>Rick and Morty</h1>
 			<h2>Welcome!</h2>
 			<p>See INSTRUCTIONS.md for more information on how to proceed.</p>
+			<Characters />
 		</main>
 	</>
 )
