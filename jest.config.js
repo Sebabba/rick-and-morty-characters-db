@@ -9,7 +9,10 @@ module.exports = {
     '^.+\\.(ts|tsx)$': [
       'ts-jest',
       {
-        tsconfig: 'tsconfig.json',
+        // Invece di puntare solo al file, passiamo un oggetto di override
+        tsconfig: {
+          jsx: 'react-jsx',
+        },
       },
     ],
   },
