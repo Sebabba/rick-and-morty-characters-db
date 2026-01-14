@@ -1,5 +1,7 @@
 import Head from 'next/head';
 import Characters from '~/components/characters';
+import Link from 'next/link';
+import Navbar from '~/components/navbar';
 
 const Home = () => (
 	<>
@@ -10,6 +12,7 @@ const Home = () => (
 			<link rel="icon" href="/favicon.ico" />
 		</Head>
 		<main>
+			<Navbar />
 			<header>
 				<h1>Rick and Morty</h1>
 				<h2>Welcome!</h2>
