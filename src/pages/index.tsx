@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Characters from '~/components/characters';
 import Link from 'next/link';
 import Navbar from '~/components/navbar';
+import Header from '~/components/header';
 
 const Home = () => (
 	<>
@@ -13,10 +14,7 @@ const Home = () => (
 		</Head>
 		<main>
 			<Navbar />
-			<header>
-				<h1>Rick and Morty</h1>
-				<h2>Welcome!</h2>
-			</header>
+			<Header imageName='characters' />
 			<Characters />
 		</main>
 	</>
