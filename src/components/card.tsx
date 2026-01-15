@@ -1,16 +1,16 @@
 import type { JSX } from 'react';
-import { Character } from '~/utils/types';
+import { CharacterType } from '~/utils/types';
 import Link from 'next/link';
 
 type CardProps = {
-	item: Character;
+	item: CharacterType;
 };
 
 export default function Card({ item }: CardProps): JSX.Element {
 	return (
 		<Link
 			href={{
-				pathname: `/characterDetail`,
+				pathname: `/character`,
 				query: { id: item.id },
 			}}
 		>

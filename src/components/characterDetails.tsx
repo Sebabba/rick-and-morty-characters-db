@@ -1,14 +1,14 @@
 import { useEffect, useState, type JSX } from 'react';
-import { Character } from '~/utils/types';
+import { CharacterType } from '~/utils/types';
 import Link from 'next/link';
-import { Episode } from '~/utils/types';
+import { EpisodeType } from '~/utils/types';
 
 type CardProps = {
-	item: Character | undefined;
+	item: CharacterType | undefined;
 };
 
 export default function characterDetails({ item }: CardProps): JSX.Element {
-	const [episodes, setEpisodes] = useState<Episode[]>([]);
+	const [episodes, setEpisodes] = useState<EpisodeType[]>([]);
 	const [loading, setLoading] = useState<boolean>(false);
 	const [error, setError] = useState<string | null>(null);
 
@@ -68,7 +68,7 @@ export default function characterDetails({ item }: CardProps): JSX.Element {
 				</div>
 				<h3>Episodes</h3>
 				<div className="detailsEpisodes">
-					{episodes.map((episode: Episode) => {
+					{episodes.map((episode: EpisodeType) => {
 						return (
 							<>
 								<p className="detailsEpisodeEpisode">{episode.episode}</p>

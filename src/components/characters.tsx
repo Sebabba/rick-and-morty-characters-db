@@ -1,12 +1,12 @@
 import type { JSX } from 'react';
 import { useEffect, useState, useRef, useCallback } from 'react';
-import { Character } from '~/utils/types';
+import { CharacterType } from '~/utils/types';
 import Card from './card';
 import { Search } from 'lucide-react';
 
 export default function Characters(): JSX.Element {
 	// setup the states
-	const [items, setItems] = useState<Character[]>([]);
+	const [items, setItems] = useState<CharacterType[]>([]);
 	const [loading, setLoading] = useState<boolean>(false);
 	const [error, setError] = useState<string | null>(null);
 	const [page, setPage] = useState<number>(1);

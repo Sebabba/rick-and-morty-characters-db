@@ -1,11 +1,11 @@
 import type { JSX } from 'react';
-import { Episode } from '~/utils/types';
+import { EpisodeType } from '~/utils/types';
 import { Search } from 'lucide-react';
 import { useEffect, useState, useRef, useCallback } from 'react';
 import EpisodeCard from './episodeCard';
 
 export default function EpisodesList(): JSX.Element {
-    const [items, setItems] = useState<Episode[]>([]);
+    const [items, setItems] = useState<EpisodeType[]>([]);
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
     const [page, setPage] = useState<number>(1);

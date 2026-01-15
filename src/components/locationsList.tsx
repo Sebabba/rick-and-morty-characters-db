@@ -1,11 +1,11 @@
 import type { JSX } from 'react';
-import { Location } from '~/utils/types';
+import { LocationType } from '~/utils/types';
 import { Search } from 'lucide-react';
 import { useEffect, useState, useRef, useCallback } from 'react';
 import LocationCard from './locationCard';
 
 export default function LocationsList(): JSX.Element {
-    const [items, setItems] = useState<Location[]>([]);
+    const [items, setItems] = useState<LocationType[]>([]);
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
     const [page, setPage] = useState<number>(1);

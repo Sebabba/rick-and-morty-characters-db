@@ -5,10 +5,10 @@ export type RickAndMortyResponse = {
 		next: string | null;
 		prev: string | null;
 	};
-	results: Character[];
+	results: CharacterType[];
 };
 
-export type Character = {
+export type CharacterType = {
 	id: number;
 	name: string;
 	status: string;
@@ -29,22 +29,22 @@ export type Character = {
 	created: string;
 };
 
-export type Episode = {
+export type EpisodeType = {
 	id: number;
 	name: string;
 	air_date: string;
 	episode: string;
-	characters: Character[];
+	characters: CharacterType[];
 	url: string;
 	created: string;
 };
 
-export type Location = {
+export type LocationType = {
 	id: number;
 	name: string;
 	type: string;
 	dimensione: string;
-	residents: Character[];
+	residents: CharacterType[];
 	url: string;
 	created: string;
 }

@@ -1,5 +1,5 @@
 import type { JSX } from 'react';
-import { Character } from '~/utils/types';
+import { CharacterType } from '~/utils/types';
 import { useSearchParams } from 'next/navigation';
 import { useState, useEffect} from 'react';
 import CharacterDetails from '~/components/characterDetails';
@@ -8,11 +8,11 @@ import Navbar from '~/components/navbar';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 
-export default function CharacterDetail(): JSX.Element {
+export default function Character(): JSX.Element {
 	const searchParams = useSearchParams();
 	const id = searchParams.get('id');
 
-	const [item, setItem] = useState<Character>();
+	const [item, setItem] = useState<CharacterType>();
 	const [loading, setLoading] = useState<boolean>(false);
 	const [error, setError] = useState<string | null>(null);
 

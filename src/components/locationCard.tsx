@@ -1,9 +1,9 @@
 import type { JSX } from 'react';
-import { Location } from '~/utils/types';
+import { LocationType } from '~/utils/types';
 import Link from 'next/link';
 
 type CardProps = {
-    item: Location;
+    item: LocationType;
 };
 
 export default function LocationCard({ item }: CardProps): JSX.Element {

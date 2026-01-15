@@ -1,9 +1,9 @@
 import type { JSX } from 'react';
-import { Episode } from '~/utils/types';
+import { EpisodeType } from '~/utils/types';
 import Link from 'next/link';
 
 type CardProps = {
-    item: Episode;
+    item: EpisodeType;
 };
 
 export default function EpisodeCard({ item }: CardProps): JSX.Element {
