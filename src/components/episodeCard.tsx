@@ -8,7 +8,7 @@ type CardProps = {
 
 export default function EpisodeCard({ item }: CardProps): JSX.Element {
     return(
-        <Link href={{}}>
+        <Link href={{pathname: `/episode`, query: {id: item.id}}}>
             <article className='episodeCard'>
                 <h3>{item.name}</h3>
                 <p>{item.air_date}</p>

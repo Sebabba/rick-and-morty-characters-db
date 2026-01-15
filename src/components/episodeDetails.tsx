@@ -1,13 +1,13 @@
 import { useEffect, useState, type JSX } from 'react';
-import { LocationType } from '~/utils/types';
+import { EpisodeType } from '~/utils/types';
 import { CharacterType } from '~/utils/types';
 import Card from './card';
 
 type CardProps = {
-    item: LocationType | undefined;
+    item: EpisodeType | undefined;
 }
 
-export default function LocationDetails({ item }:CardProps):JSX.Element{
+export default function EpisodeDetails({item}:CardProps):JSX.Element{
     const [characters, setCharacters] = useState<CharacterType[]>([]);
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
@@ -19,8 +19,8 @@ export default function LocationDetails({ item }:CardProps):JSX.Element{
 		const fetchData = async () => {
 			try {
 				setLoading(true);
-				for (let i = 0; i < item.residents.length; i++) {
-					const response = await fetch(item.residents[i]);
+				for (let i = 0; i < item.characters.length; i++) {
+					const response = await fetch(item.characters[i]);
 					const data = await response.json();
 					setCharacters((prev) => [...prev, data]);
 				}
@@ -37,28 +37,28 @@ export default function LocationDetails({ item }:CardProps):JSX.Element{
     if(item){
         return(
             <>
-                <div className="locationDetails">
+                <div className='episodeDetails'>
                     <h2 style={{textAlign: "center"}}>{item.name}</h2>
-                    <div className='locationHeader'>
+                    <div className='episodeHeader'>
                         <div className='type'>
-                            <b><p>Type</p></b>
-                            <p style={{color: "#6e798c"}}>{item.type}</p>
+                            <b><p>Episode</p></b>
+                            <p style={{color: "#6e798c"}}>{item.episode}</p>
                         </div>
                         <div className='dimension'>
-                            <b><p>Dimension</p></b>
-                            <p style={{color: "#6e798c"}}>{item.dimension}</p>
+                            <b><p>Date</p></b>
+                            <p style={{color: "#6e798c"}}>{item.air_date}</p>
                         </div>
                     </div>
-                    <h3 className='detailsSectionTitle'>Residentes</h3>
-                    <div className='detailsResidents'>
-                        {characters.map((character: CharacterType) => {
-                            return (
-                                <>
-                                    <Card item={character} />
-                                </>
-                            )
-                        })}
-                    </div>
+                </div>
+                <h3 className='detailsSectionTitle'>Residentes</h3>
+                <div className='detailsResidents'>
+                    {characters.map((character: CharacterType) => {
+                        return (
+                            <>
+                                <Card item={character} />
+                            </>
+                        )
+                    })}
                 </div>
 
                 {loading && <div className="status-msg">Caricamento...</div>}
@@ -66,8 +66,8 @@ export default function LocationDetails({ item }:CardProps):JSX.Element{
             </>
         )
     } else {
-		return (
+        return (
 			<p>Non Existing Location</p>
 		);
-	}
+    }
 }

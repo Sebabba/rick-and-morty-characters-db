@@ -311,10 +311,6 @@ header {
   padding: 2px;
 }
 
-.locationDetails {
-  
-}
-
 .locationDetails h2 {
   font-size: 30px;
   line-height: 30px;
@@ -335,4 +331,19 @@ header {
   color: #8e8e93;
   padding: 30px 30px 5px 30px;
   font-weight: 500;
+}
+
+.episodeDetails h2 {
+  font-size: 30px;
+  line-height: 30px;
+  padding: 10px;
+}
+
+.episodeHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: left;
+  font-size: 20px;
+  padding: 10px 30px 30px 30px
 }
