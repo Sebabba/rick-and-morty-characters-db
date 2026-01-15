@@ -57,6 +57,9 @@ export default function Character(): JSX.Element {
 				</Link>
 				<CharacterDetails item={item} />
 			</main>
+
+			{loading && <div className="status-msg">Caricamento...</div>}
+			{error && <div className="status-msg error">{error}</div>}
 		</>
 	);
 }

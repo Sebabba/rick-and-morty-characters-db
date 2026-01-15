@@ -34,7 +34,7 @@ export type EpisodeType = {
 	name: string;
 	air_date: string;
 	episode: string;
-	characters: CharacterType[];
+	characters: string[];
 	url: string;
 	created: string;
 };
@@ -43,8 +43,8 @@ export type LocationType = {
 	id: number;
 	name: string;
 	type: string;
-	dimensione: string;
-	residents: CharacterType[];
+	dimension: string;
+	residents: string[];
 	url: string;
 	created: string;
 }

@@ -100,6 +100,16 @@ header {
   text-align: center;
 }
 
+.cardTitle {
+  font-size: 25px;
+  color: black;
+}
+
+.cardSpecie {
+  font-size: 20px;
+  color: #8e8e93;
+}
+
 .card img {
   max-width: 100%;
   height: auto;
@@ -176,13 +186,6 @@ header {
   border-radius: 50%;
   object-fit: cover;
   display: block;
-}
-
-.characterDetails h3 {
-  font-size: 30px;
-  color: #8e8e93;
-  padding: 30px;
-  font-weight: 500;
 }
 
 .goBackSection {
@@ -306,4 +309,30 @@ header {
   font-weight: 500;
   color: black;
   padding: 2px;
+}
+
+.locationDetails {
+  
+}
+
+.locationDetails h2 {
+  font-size: 30px;
+  line-height: 30px;
+  padding: 10px;
+}
+
+.locationHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: left;
+  font-size: 20px;
+  padding: 10px 30px 30px 30px
+}
+
+.detailsSectionTitle {
+  font-size: 30px;
+  color: #8e8e93;
+  padding: 30px 30px 5px 30px;
+  font-weight: 500;
 }

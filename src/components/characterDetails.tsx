@@ -7,13 +7,12 @@ type CardProps = {
 	item: CharacterType | undefined;
 };
 
-export default function characterDetails({ item }: CardProps): JSX.Element {
+export default function CharacterDetails({ item }: CardProps): JSX.Element {
 	const [episodes, setEpisodes] = useState<EpisodeType[]>([]);
 	const [loading, setLoading] = useState<boolean>(false);
 	const [error, setError] = useState<string | null>(null);
 
 	useEffect(() => {
-		console.log(item);
 		if (!item) return;
 
 		const fetchData = async () => {
@@ -36,50 +35,56 @@ export default function characterDetails({ item }: CardProps): JSX.Element {
 
 	if (item) {
 		return (
-			<article className="characterDetails">
-				<div className="detailsHeader">
-					{item.image && <img src={item.image} alt={item.name} />}
-					<h2>{item.name}</h2>
-				</div>
-				<h3>Informations</h3>
-				<div className="detailsInformation">
-					<p className="detailsName">Gender</p>
-					<p className="detailsValue">{item.gender}</p>
-					<hr />
-					<p className="detailsName">Status</p>
-					<p className="detailsValue">{item.status}</p>
-					<hr />
-					<p className="detailsName">Specie</p>
-					<p className="detailsValue">{item.species}</p>
-					<hr />
-					<p className="detailsName">Origin</p>
-					<p className="detailsValue">{item.origin.name}</p>
-					<hr />
-					{item.type && (
-						<>
-							<p className="detailsName">Type</p>
-							<p className="detailsValue">{item.type}</p>
-							<hr />
-						</>
-					)}
-					<p className="detailsName">Location</p>
-					<p className="detailsValue">{item.location.name}</p>
-					<hr />
-				</div>
-				<h3>Episodes</h3>
-				<div className="detailsEpisodes">
-					{episodes.map((episode: EpisodeType) => {
-						return (
+			<>
+				<article className="characterDetails">
+					<div className="detailsHeader">
+						{item.image && <img src={item.image} alt={item.name} />}
+						<h2>{item.name}</h2>
+					</div>
+					<h3 className='detailsSectionTitle'>Informations</h3>
+					<div className="detailsInformation">
+						<p className="detailsName">Gender</p>
+						<p className="detailsValue">{item.gender}</p>
+						<hr />
+						<p className="detailsName">Status</p>
+						<p className="detailsValue">{item.status}</p>
+						<hr />
+						<p className="detailsName">Specie</p>
+						<p className="detailsValue">{item.species}</p>
+						<hr />
+						<p className="detailsName">Origin</p>
+						<p className="detailsValue">{item.origin.name}</p>
+						<hr />
+						{item.type && (
 							<>
-								<p className="detailsEpisodeEpisode">{episode.episode}</p>
-								<p className="detailsEpisodeName">{episode.name}</p>
-								<p className="detailsEpisodeAirDate">{episode.air_date}</p>
+								<p className="detailsName">Type</p>
+								<p className="detailsValue">{item.type}</p>
 								<hr />
 							</>
-						);
-					})}
-				</div>
-			</article>
+						)}
+						<p className="detailsName">Location</p>
+						<p className="detailsValue">{item.location.name}</p>
+						<hr />
+					</div>
+					<h3 className='detailsSectionTitle'>Episodes</h3>
+					<div className="detailsEpisodes">
+						{episodes.map((episode: EpisodeType) => {
+							return (
+								<>
+									<p className="detailsEpisodeEpisode">{episode.episode}</p>
+									<p className="detailsEpisodeName">{episode.name}</p>
+									<p className="detailsEpisodeAirDate">{episode.air_date}</p>
+									<hr />
+								</>
+							);
+						})}
+					</div>
+				</article>
+
+				{loading && <div className="status-msg">Caricamento...</div>}
+				{error && <div className="status-msg error">{error}</div>}
+			</>
+
 		);
 	} else {
 		return (

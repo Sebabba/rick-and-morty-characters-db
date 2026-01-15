@@ -1,0 +1,71 @@
+import { useEffect, useState, type JSX } from 'react';
+import { LocationType } from '~/utils/types';
+import Link from 'next/link';
+import { CharacterType } from '~/utils/types';
+import Card from './card';
+
+type CardProps = {
+    item: LocationType | undefined;
+}
+
+export default function LocationDetails({ item }:CardProps):JSX.Element{
+    const [characters, setCharacters] = useState<CharacterType[]>([]);
+    const [loading, setLoading] = useState<boolean>(false);
+    const [error, setError] = useState<string | null>(null);
+
+    useEffect(() => {
+		console.log(item);
+		if (!item) return;
+
+		const fetchData = async () => {
+			try {
+				setLoading(true);
+				for (let i = 0; i < item.residents.length; i++) {
+					const response = await fetch(item.residents[i]);
+					const data = await response.json();
+					setCharacters((prev) => [...prev, data]);
+				}
+			} catch (err) {
+				setError(err instanceof Error ? err.message : 'Unknown error');
+			} finally {
+				setLoading(false);
+			}
+		};
+
+		fetchData();
+	}, [item]);
+
+    if(item){
+        return(
+            <>
+                <div className="locationDetails">
+                    <h2 style={{textAlign: "center"}}>{item.name}</h2>
+                    <div className='locationHeader'>
+                        <div className='type'>
+                            <b><p>Type</p></b>
+                            <p style={{color: "#6e798c"}}>{item.type}</p>
+                        </div>
+                        <div className='dimension'>
+                            <b><p>Dimension</p></b>
+                            <p style={{color: "#6e798c"}}>{item.dimension}</p>
+                        </div>
+                    </div>
+                    <h3 className='detailsSectionTitle'>Residentes</h3>
+                    <div className='detailsResidents'>
+                        {characters.map((character: CharacterType) => {
+                            return (
+                                <>
+                                    <Card item={character} />
+                                </>
+                            )
+                        })}
+                    </div>
+                </div>
+            </>
+        )
+    } else {
+		return (
+			<p>Non Existing Location</p>
+		);
+	}
+}

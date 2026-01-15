@@ -8,7 +8,7 @@ type CardProps = {
 
 export default function LocationCard({ item }: CardProps): JSX.Element {
     return (
-        <Link href={{}}>
+        <Link href={{pathname: `/location`, query: {id: item.id}}}>
             <article className='locationCard'>
                 <h3>{item.name}</h3>
                 <p>{item.type}</p>
