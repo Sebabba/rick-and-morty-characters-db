@@ -2,6 +2,7 @@ import type { JSX } from 'react';
 import Head from 'next/head';
 import Navbar from '~/components/navbar';
 import Header from '~/components/header';
+import EpisodesList from '~/components/episodesList';
 
 export default function Episodes(): JSX.Element {
     return(
@@ -15,7 +16,7 @@ export default function Episodes(): JSX.Element {
             <main>
                 <Navbar />
                 <Header imageName='episodes' />
-                
+                <EpisodesList />
             </main>
         </>
     )
