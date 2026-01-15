@@ -8,10 +8,12 @@ type CardProps = {
 
 export default function Card({ item }: CardProps): JSX.Element {
 	return (
-		<Link href={{
-			pathname: `/characterDetail`,
-			query: { id: item.id }
-		}}>
+		<Link
+			href={{
+				pathname: `/characterDetail`,
+				query: { id: item.id },
+			}}
+		>
 			<article key={item.id} className="card">
 				{item.image && (
 					<img

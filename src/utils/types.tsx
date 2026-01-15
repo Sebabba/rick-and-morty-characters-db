@@ -37,4 +37,4 @@ export type Episode = {
 	characters: Character[];
 	url: string;
 	created: string;
-}
+};

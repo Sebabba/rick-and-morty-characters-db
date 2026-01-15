@@ -26,16 +26,19 @@ Sebastiano Silipo's project.
 ### Installation
 
 **Clone the repository**
+
 ```bash
 git clone https://github.com/Sebabba/rick-and-morty-web-template.git
 ```
 
 ### Install Dependencies
+
 ```bash
 cd rick-and-morty-web-template && npm install
 ```
 
 ### Repository Structure
+
 ```
 /rick-and-morty-web-template
 ├── /src
@@ -65,7 +68,9 @@ cd rick-and-morty-web-template && npm install
 ```
 
 ### Testing
+
 Use Jest for unit testing
+
 ```bash
 npm run test
 ```

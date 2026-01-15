@@ -11,7 +11,7 @@ export default function Characters(): JSX.Element {
 	const [error, setError] = useState<string | null>(null);
 	const [page, setPage] = useState<number>(1);
 	const [hasMore, setHasMore] = useState<boolean>(true);
-	const [name, setName] = useState<string>("");
+	const [name, setName] = useState<string>('');
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -21,7 +21,7 @@ export default function Characters(): JSX.Element {
 					`https://rickandmortyapi.com/api/character/?page=${page}&name=${name}`,
 				);
 
-				if (!response.ok) throw new Error("No Character Found");
+				if (!response.ok) throw new Error('No Character Found');
 
 				const data = await response.json();
 
@@ -62,13 +62,13 @@ export default function Characters(): JSX.Element {
 
 	return (
 		<>
-			<div className='search-container'>
-				<div className='search-icon'>
+			<div className="search-container">
+				<div className="search-icon">
 					<Search size={23} />
 				</div>
 				<input
-					id='filter-input'
-					className='search-input'
+					id="filter-input"
+					className="search-input"
 					type="text"
 					placeholder="Filter by name..."
 					value={name}

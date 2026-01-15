@@ -14,7 +14,7 @@ const Home = () => (
 		</Head>
 		<main>
 			<Navbar />
-			<Header imageName='characters' />
+			<Header imageName="characters" />
 			<Characters />
 		</main>
 	</>
