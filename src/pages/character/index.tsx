@@ -5,8 +5,6 @@ import { useState, useEffect} from 'react';
 import CharacterDetails from '~/components/characterDetails';
 import Head from 'next/head';
 import Navbar from '~/components/navbar';
-import { ArrowLeft } from 'lucide-react';
-import Link from 'next/link';
 import GoBackButton from '~/components/goBackButton';
 
 export default function Character(): JSX.Element {

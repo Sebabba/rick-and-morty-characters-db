@@ -1,6 +1,5 @@
 import { useEffect, useState, type JSX } from 'react';
 import { CharacterType } from '~/utils/types';
-import Link from 'next/link';
 import { EpisodeType } from '~/utils/types';
 
 type CardProps = {

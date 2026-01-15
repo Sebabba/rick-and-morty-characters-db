@@ -4,8 +4,6 @@ import { useSearchParams } from 'next/navigation';
 import { useState, useEffect} from 'react';
 import Head from 'next/head';
 import Navbar from '~/components/navbar';
-import { ArrowLeft } from 'lucide-react';
-import Link from 'next/link';
 import LocationDetails from '~/components/locationDetails';
 import GoBackButton from '~/components/goBackButton';
 
