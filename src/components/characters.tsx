@@ -61,7 +61,7 @@ export default function Characters(): JSX.Element {
 		},
 		[loading, hasMore],
 	);
-	console.log(items.map(i => i.id))
+	
 	return (
 		<>
 			<div className="search-container">

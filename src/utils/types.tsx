@@ -38,3 +38,13 @@ export type Episode = {
 	url: string;
 	created: string;
 };
+
+export type Location = {
+	id: number;
+	name: string;
+	type: string;
+	dimensione: string;
+	residents: Character[];
+	url: string;
+	created: string;
+}

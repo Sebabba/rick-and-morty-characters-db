@@ -2,6 +2,7 @@ import type { JSX } from 'react';
 import Head from 'next/head';
 import Navbar from '~/components/navbar';
 import Header from '~/components/header';
+import LocationsList from '~/components/locationsList';
 
 export default function Locations(): JSX.Element {
     return(
@@ -15,6 +16,7 @@ export default function Locations(): JSX.Element {
             <main>
                 <Navbar />
                 <Header imageName='locations' />
+                <LocationsList />
             </main>
         </>
     )
