@@ -7,6 +7,7 @@ import Head from 'next/head';
 import Navbar from '~/components/navbar';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
+import GoBackButton from '~/components/goBackButton';
 
 export default function Character(): JSX.Element {
 	const searchParams = useSearchParams();
@@ -49,12 +50,7 @@ export default function Character(): JSX.Element {
 			</Head>
 			<main>
 				<Navbar />
-				<Link href={{}}>
-					<div className="goBackSection">
-						<ArrowLeft size={23} />
-						<p style={{ fontWeight: 600, fontSize: 'x-large' }}>GO BACK</p>
-					</div>
-				</Link>
+				<GoBackButton />
 				<CharacterDetails item={item} />
 			</main>
 

@@ -7,6 +7,7 @@ import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import { EpisodeType } from '~/utils/types';
 import EpisodeDetails from '~/components/episodeDetails';
+import GoBackButton from '~/components/goBackButton';
 
 export default function Episode(): JSX.Element {
     const searchParams = useSearchParams();
@@ -49,12 +50,7 @@ export default function Episode(): JSX.Element {
 			</Head>
             <main>
                 <Navbar />
-                <Link href={{}}>
-                    <div className="goBackSection">
-						<ArrowLeft size={23} />
-						<p style={{ fontWeight: 600, fontSize: 'x-large' }}>GO BACK</p>
-					</div>
-                </Link>
+                <GoBackButton />
                 <EpisodeDetails item={item} />
             </main>
 
