@@ -6,6 +6,7 @@ import Head from 'next/head';
 import Navbar from '~/components/navbar';
 import LocationDetails from '~/components/locationDetails';
 import GoBackButton from '~/components/goBackButton';
+import loadingComponent from '../images/loading-component.png'
 
 export default function Location(): JSX.Element {
     const searchParams = useSearchParams();
@@ -52,7 +53,15 @@ export default function Location(): JSX.Element {
                 <LocationDetails item={item} />
             </main>
 
-            {loading && <div className="status-msg">Caricamento...</div>}
+            {loading && (
+                <div className="status-msg">
+                    <img 
+                    src={loadingComponent.src} 
+                    alt="Caricamento..." 
+                    style={{ width: 100, height: 100 }} 
+                    />
+                </div>
+            )}
 			{error && <div className="status-msg error">{error}</div>}
         </>
     )

@@ -3,7 +3,7 @@ import { CharacterType } from '~/utils/types';
 import { EpisodeType } from '~/utils/types';
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
-import { LocationType } from '~/utils/types';
+import loadingComponent from '../images/loading-component.png'
 
 type CardProps = {
 	item: CharacterType | undefined;
@@ -102,7 +102,15 @@ export default function CharacterDetails({ item }: CardProps): JSX.Element {
 					</div>
 				</article>
 
-				{loading && <div className="status-msg">Caricamento...</div>}
+				{loading && (
+					<div className="status-msg">
+						<img 
+						src={loadingComponent.src} 
+						alt="Caricamento..." 
+						style={{ width: 100, height: 100 }} 
+						/>
+					</div>
+				)}
 				{error && <div className="status-msg error">{error}</div>}
 			</>
 

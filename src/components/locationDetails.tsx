@@ -2,6 +2,7 @@ import { useEffect, useState, type JSX } from 'react';
 import { LocationType } from '~/utils/types';
 import { CharacterType } from '~/utils/types';
 import Card from './card';
+import loadingComponent from '../images/loading-component.png'
 
 type CardProps = {
     item: LocationType | undefined;
@@ -59,7 +60,15 @@ export default function LocationDetails({ item }:CardProps):JSX.Element{
                     </div>
                 </div>
 
-                {loading && <div className="status-msg">Caricamento...</div>}
+                {loading && (
+					<div className="status-msg">
+						<img 
+						src={loadingComponent.src} 
+						alt="Caricamento..." 
+						style={{ width: 100, height: 100 }} 
+						/>
+					</div>
+				)}
 			    {error && <div className="status-msg error">{error}</div>}
             </>
         )

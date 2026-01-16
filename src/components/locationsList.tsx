@@ -3,6 +3,7 @@ import { LocationType } from '~/utils/types';
 import { Search } from 'lucide-react';
 import { useEffect, useState, useRef, useCallback } from 'react';
 import LocationCard from './locationCard';
+import loadingComponent from '../images/loading-component.png'
 
 export default function LocationsList(): JSX.Element {
     const [items, setItems] = useState<LocationType[]>([]);
@@ -98,7 +99,15 @@ export default function LocationsList(): JSX.Element {
                 })}
             </div>
 
-            {loading && <div className="status-msg">Caricamento...</div>}
+            {loading && (
+                <div className="status-msg">
+                    <img 
+                    src={loadingComponent.src} 
+                    alt="Caricamento..." 
+                    style={{ width: 100, height: 100 }} 
+                    />
+                </div>
+            )}
 			{error && <div className="status-msg error">{error}</div>}
         </>
     )

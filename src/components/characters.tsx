@@ -3,6 +3,8 @@ import { useEffect, useState, useRef, useCallback } from 'react';
 import { CharacterType } from '~/utils/types';
 import Card from './card';
 import { Search } from 'lucide-react';
+import Image from 'next/image';
+import loadingComponent from '../images/loading-component.png'
 
 export default function Characters(): JSX.Element {
 	// setup the states
@@ -101,8 +103,16 @@ export default function Characters(): JSX.Element {
 					)
 				})}
 			</div>
-
-			{loading && <div className="status-msg">Caricamento...</div>}
+			
+			{loading && (
+				<div className="status-msg">
+					<img 
+					src={loadingComponent.src} 
+					alt="Caricamento..." 
+					style={{ width: 100, height: 100 }} 
+					/>
+				</div>
+			)}
 			{error && <div className="status-msg error">{error}</div>}
 		</>
 	);

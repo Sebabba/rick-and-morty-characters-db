@@ -6,6 +6,7 @@ import Navbar from '~/components/navbar';
 import { EpisodeType } from '~/utils/types';
 import EpisodeDetails from '~/components/episodeDetails';
 import GoBackButton from '~/components/goBackButton';
+import loadingComponent from '../images/loading-component.png'
 
 export default function Episode(): JSX.Element {
     const searchParams = useSearchParams();
@@ -52,7 +53,15 @@ export default function Episode(): JSX.Element {
                 <EpisodeDetails item={item} />
             </main>
 
-            {loading && <div className="status-msg">Caricamento...</div>}
+            {loading && (
+                <div className="status-msg">
+                    <img 
+                    src={loadingComponent.src} 
+                    alt="Caricamento..." 
+                    style={{ width: 100, height: 100 }} 
+                    />
+                </div>
+            )}
 			{error && <div className="status-msg error">{error}</div>}
         </>
     )
