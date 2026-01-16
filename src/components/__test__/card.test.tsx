@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import Card from '../card';
-import { Character } from '~/utils/types';
+import { CharacterType } from '~/utils/types';
 
-let item: Character = {
+let item: CharacterType = {
 	id: 1,
 	name: 'Rick Sanchez',
 	status: 'Alive',

@@ -15,12 +15,18 @@ export default function Characters(): JSX.Element {
 	const [hasMore, setHasMore] = useState<boolean>(true);
 	const [name, setName] = useState<string>('');
 
+	const [filterOpen, setFilterOpen] = useState(false)
+	const [species, setSpecies] = useState('')
+	const [gender, setGender] = useState('')
+	const [status, setStatus] = useState('')
+	const [filterChanged, setFilterChanged] = useState(false)
+
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
 				setLoading(true);
 				const response = await fetch(
-					`https://rickandmortyapi.com/api/character/?page=${page}&name=${name}`,
+					`https://rickandmortyapi.com/api/character/?page=${page}&name=${name}&species=${species}&gender=${gender}&status=${status}`
 				);
 
 				if (!response.ok) throw new Error('No Character Found');
@@ -40,7 +46,7 @@ export default function Characters(): JSX.Element {
 
 		// fetch data only if we have more data to fetch
 		if (hasMore) fetchData();
-	}, [page, name]);
+	}, [page, name, filterOpen]);
 
 	// infinite scroller implementation
 	const observer = useRef<IntersectionObserver | null>(null);
@@ -85,6 +91,65 @@ export default function Characters(): JSX.Element {
 					}}
 				/>
 			</div>
+			<div className='search-container'>
+				<button onClick={() => setFilterOpen(!filterOpen)} className="filter-button">
+					ADVANCED FILTERS
+				</button>
+			</div>
+			
+			
+			{filterOpen && (
+				<div className="modal-overlay" onClick={() => setFilterOpen(false)}>
+					<div className="modal-content" onClick={(e) => e.stopPropagation()}>
+					<h3 style={{marginBottom: "10px"}}>Filters</h3>
+
+					<div className="modal-field">
+						<select value={species} onChange={(e) => setSpecies(e.target.value)}>
+						<option value="" disabled selected hidden>Species</option>
+						<option value="">Any</option>
+						<option value="Human">Human</option>
+						<option value="Alien">Alien</option>
+						<option value="Robot">Robot</option>
+						</select>
+					</div>
+
+					<div className="modal-field">
+						<select value={gender} onChange={(e) => setGender(e.target.value)}>
+						<option value="" disabled selected hidden>Gender</option>
+						<option value="">Any</option>
+						<option value="Male">Male</option>
+						<option value="Female">Female</option>
+						<option value="Genderless">Genderless</option>
+						<option value="unknown">Unknown</option>
+						</select>
+					</div>
+
+					<div className="modal-field">
+						<select value={status} onChange={(e) => setStatus(e.target.value)}>
+						<option value="" disabled selected hidden>Status</option>
+						<option value="">Any</option>
+						<option value="Alive">Alive</option>
+						<option value="Dead">Dead</option>
+						<option value="unknown">Unknown</option>
+						</select>
+					</div>
+
+					<button
+						className="filter-button"
+						onClick={() => {
+						setItems([])      // reset della lista
+						setPage(1)
+						setHasMore(true)
+						setError(null)
+						setFilterOpen(false)
+						}}
+					>
+						Apply
+					</button>
+					</div>
+				</div>
+			)}
+
 			<div className="grid-container">
 				{items.map((item, index) => {
 					// if it is the last element, we attach the observer
