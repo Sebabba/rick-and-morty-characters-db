@@ -24,11 +24,11 @@ let item: CharacterType = {
 };
 
 describe('CharacterDetails component', () => {
-    test('renders character details', () => {
-        render(<CharacterDetails item={item} />)
-        expect(screen.getByText(/Rick Sanchez/i)).toBeInTheDocument();
-        expect(screen.getByText(/Human/i)).toBeInTheDocument();
-        expect(screen.getByText(/Earth \(C-137\)/i)).toBeInTheDocument();
-        expect(screen.getByText(/Citadel of Ricks/i)).toBeInTheDocument();
-    })
-})
+	test('renders character details', () => {
+		render(<CharacterDetails item={item} />);
+		expect(screen.getByText(/Rick Sanchez/i)).toBeInTheDocument();
+		expect(screen.getByText(/Human/i)).toBeInTheDocument();
+		expect(screen.getByText(/Earth \(C-137\)/i)).toBeInTheDocument();
+		expect(screen.getByText(/Citadel of Ricks/i)).toBeInTheDocument();
+	});
+});
